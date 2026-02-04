@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VorteX Dashboard</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="VorteX" class="logo" onerror="this.style.display='none'"/>
+      <h2>VorteX</h2>
+    </div>
+
+    <div class="account">
+      <button id="loginBtn" class="btn small">Connect with Discord</button>
+      <select id="guildSelect" aria-label="Select Guild">
+        <option value="">Select a server (guild)</option>
+      </select>
+      <input id="manualGuild" placeholder="Or paste Guild ID" />
+    </div>
+
+    <nav class="nav">
+      <button data-page="overview" class="nav-btn active">Overview</button>
+      <button data-page="general" class="nav-btn">General</button>
+      <button data-page="welcome" class="nav-btn">Welcome</button>
+      <button data-page="moderation" class="nav-btn">Moderation</button>
+      <button data-page="tickets" class="nav-btn">Tickets</button>
+      <button data-page="roles" class="nav-btn">Roles</button>
+    </nav>
+
+    <footer class="sidebar-foot">
+      <small>VorteX • Dashboard</small>
+    </footer>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <h1 id="pageTitle">Overview</h1>
+      <div class="header-actions">
+        <button id="previewBtn" class="btn ghost">Preview</button>
+        <button id="saveBtn" class="btn primary">Save changes</button>
+      </div>
+    </header>
+
+    <section class="content">
+      <!-- OVERVIEW -->
+      <article class="page" id="overviewPage">
+        <h3>Quick status</h3>
+        <p id="statusText">Not connected to a server yet.</p>
+        <div class="card small">
+          <p>Use the sidebar to choose a section. Connect with Discord to load your servers automatically.</p>
+        </div>
+      </article>
+
+      <!-- GENERAL -->
+      <article class="page hidden" id="generalPage">
+        <h3>General settings</h3>
+        <div class="card">
+          <label>Bot prefix (if used)</label>
+          <input id="prefixInput" placeholder="!" />
+        </div>
+        <div class="card">
+          <label>Timezone</label>
+          <input id="timezoneInput" placeholder="Europe/Madrid" />
+        </div>
+      </article>
+
+      <!-- WELCOME -->
+      <article class="page hidden" id="welcomePage">
+        <h3>Welcome & Goodbye</h3>
+        <div class="card">
+          <label>Welcome Channel ID</label>
+          <input id="welcomeChannel" placeholder="123456789012345678" />
+        </div>
+        <div class="card">
+          <label>Welcome Message (variables: {user}, {server}, {memberCount})</label>
+          <textarea id="welcomeMessage" placeholder="Welcome {user} to {server}!"></textarea>
+        </div>
+        <div class="card">
+          <label>Welcome Image URL (optional)</label>
+          <input id="welcomeImage" placeholder="https://..." />
+        </div>
+      </article>
+
+      <!-- MODERATION -->
+      <article class="page hidden" id="moderationPage">
+        <h3>Moderation</h3>
+        <div class="card">
+          <label>Max warns before ban</label>
+          <input id="maxWarns" type="number" min="0" />
+        </div>
+        <div class="card">
+          <label>Enable anti-spam</label>
+          <select id="antispam">
+            <option value="true">Enabled</option>
+            <option value="false">Disabled</option>
+          </select>
+        </div>
+        <div class="card">
+          <label>Log Channel ID</label>
+          <input id="logChannel" placeholder="123456789012345678" />
+        </div>
+      </article>
+
+      <!-- TICKETS -->
+      <article class="page hidden" id="ticketsPage">
+        <h3>Tickets</h3>
+        <div class="card">
+          <label>Tickets category ID</label>
+          <input id="ticketCategory" placeholder="Category ID" />
+        </div>
+        <div class="card">
+          <label>Ticket transcript channel ID</label>
+          <input id="ticketTranscript" placeholder="Channel ID" />
+        </div>
+      </article>
+
+      <!-- ROLES -->
+      <article class="page hidden" id="rolesPage">
+        <h3>Roles</h3>
+        <div class="card">
+          <p>Role management (roles by reaction / buttons) - coming soon.</p>
+        </div>
+      </article>
+
+      <div id="opStatus" class="op-status"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* main.css - VorteX Dashboard (dark) */
+:root{
+  --bg: #0f172a;
+  --panel: #0b1220;
+  --muted: #94a3b8;
+  --text: #e6eef8;
+  --accent: #6366f1;
+  --accent-2: #4f46e5;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --card-pad: 14px;
+  --shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  height:100%;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg), #04050a 120%);
+  color:var(--text);
+  display:flex;
+  gap:20px;
+  padding:20px;
+}
+
+/* Sidebar */
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg,var(--panel), #071028);
+  border-radius:14px;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  box-shadow:var(--shadow);
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand h2{margin:0;font-size:18px}
+.logo{width:42px;height:42px;object-fit:contain;border-radius:8px}
+.account{display:flex;flex-direction:column;gap:8px}
+.account select, .account input{background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:var(--text);padding:8px;border-radius:8px}
+.nav{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.nav-btn{
+  text-align:left;
+  padding:10px 12px;
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  border-radius:8px;
+  cursor:pointer;
+}
+.nav-btn.active, .nav-btn:hover{
+  color:var(--text);
+  background:linear-gradient(90deg, rgba(99,102,241,0.12), rgba(79,70,229,0.06));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.01);
+}
+
+/* Main area */
+.main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  min-width:0;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.header h1{margin:0;font-size:20px}
+.header-actions{display:flex;gap:10px}
+.btn{
+  padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:600;
+  background:transparent;color:var(--text);
+}
+.btn.small{padding:6px 8px;font-size:13px}
+.btn.primary{background:var(--accent);color:white;box-shadow:0 6px 18px rgba(79,70,229,0.12)}
+.btn.primary:hover{background:var(--accent-2)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04)}
+
+/* Content */
+.content{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:12px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  overflow:auto;
+  min-height:400px;
+}
+.card{
+  background: rgba(255,255,255,0.02);
+  padding:var(--card-pad);
+  border-radius:10px;
+  margin-bottom:12px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+.card.small{padding:10px}
+label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
+input, textarea, select{
+  width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);
+  background:rgba(0,0,0,0.18);color:var(--text);font-size:14px;
+}
+textarea{min-height:90px;resize:vertical}
+
+/* Pages */
+.page{display:block}
+.hidden{display:none}
+
+.op-status{margin-top:10px;color:var(--muted);font-size:13px}
+.sidebar-foot{margin-top:auto;text-align:center;color:var(--muted);font-size:12px}
+
+/* Responsive */
+@media (max-width:900px){
+  body{flex-direction:column;padding:12px}
+  .sidebar{width:100%;display:flex;flex-direction:row;align-items:center;gap:12px;padding:12px}
+  .main{width:100%}
+  .nav{flex-direction:row;overflow:auto}
+  .nav-btn{white-space:nowrap}
+}
